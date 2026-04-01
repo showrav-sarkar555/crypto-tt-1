@@ -1,0 +1,57 @@
+SELECT DISTINCT D.Name
+FROM Doctors D
+JOIN Appointments A ON D.Doctor_ID = A.Doctor_ID
+WHERE A.Status = 'Completed';
+
+
+
+CREATE TABLE AVG_Sal AS
+SELECT D.Name, D.Dept, AVG(D.Salary) AS Average_Salary
+FROM Doctors D
+GROUP BY D.Dept, D.Name
+HAVING AVG(D.Salary) > 11;
+
+
+
+UPDATE Appointments
+SET Status = 'NO'
+WHERE Status = 'Cancelled';
+
+DELETE FROM Appointments
+WHERE Status = 'Scheduled';
+
+
+
+CREATE TABLE Accounts (
+    Account_Name VARCHAR(50) PRIMARY KEY,
+    Balance INT
+);
+
+INSERT INTO Accounts VALUES ('Gopal Bhar', 200);
+INSERT INTO Accounts VALUES ('Montri Moshai', 700);
+
+START TRANSACTION;
+
+-- Deduct 100 from Gopal Bhar
+UPDATE Accounts
+SET Balance = Balance - 100
+WHERE Account_Name = 'Gopal Bhar';
+
+-- Add 100 to Montri Moshai
+UPDATE Accounts
+SET Balance = Balance + 100
+WHERE Account_Name = 'Montri Moshai';
+
+-- Check if Montri Moshai balance > 1000, then rollback
+-- Montri Moshai new balance = 700 + 100 = 800 (which is < 1000)
+-- So transaction will commit
+
+SELECT Balance INTO @montri_balance 
+FROM Accounts 
+WHERE Account_Name = 'Montri Moshai';
+
+IF @montri_balance > 1000 THEN
+    ROLLBACK;
+ELSE
+    COMMIT;
+END IF;

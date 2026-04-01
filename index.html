@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crypto TT-1 — Complete Notes &amp; Solved Sample Questions</title>
-  <meta name="description" content="Comprehensive cryptography notes covering Lectures 1, 2, 4, 6, Playfair/Hill/Vigenère ciphers, and Unicity Distance with fully solved sample questions for CSE 609." />
+  <meta name="description"
+    content="Comprehensive cryptography notes covering Lectures 1, 2, 4, 6, Playfair/Hill/Vigenère ciphers, and Unicity Distance with fully solved sample questions for CSE 609." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
   <!-- ===== Floating Navigation ===== -->
@@ -35,9 +40,10 @@
   <header class="hero reveal" id="top">
     <div class="hero-glow"></div>
     <p class="eyebrow">CSE 609 · Cryptography &amp; Network Security</p>
-    <h1>TT-1 Complete Notes<br/><span class="gradient-text">&amp; Solved Sample Questions</span></h1>
+    <h1>TT-1 Complete Notes<br /><span class="gradient-text">&amp; Solved Sample Questions</span></h1>
     <p class="hero-sub">
-      Everything you need — Lectures 1, 2, 4, 6 • Playfair / Hill / Vigenère Ciphers • Unicity Distance — plus fully-worked Part A &amp; Part B solutions.
+      Everything you need — Lectures 1, 2, 4, 6 • Playfair / Hill / Vigenère Ciphers • Unicity Distance — plus
+      fully-worked Part A &amp; Part B solutions.
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#sample-a">Jump to Solutions ↓</a>
@@ -59,12 +65,14 @@
     <section class="card reveal" id="lecture-1">
       <div class="card-badge">Lecture 1</div>
       <h2>Security Foundations</h2>
-      <p class="card-intro">Why computer security matters and the fundamental properties every secure system must uphold.</p>
+      <p class="card-intro">Why computer security matters and the fundamental properties every secure system must
+        uphold.</p>
 
       <div class="topic-block">
         <h3>📌 What is Computer Security?</h3>
         <ul>
-          <li>Protection of computer systems operating in <strong>adversarial environments</strong> with possible adversaries.</li>
+          <li>Protection of computer systems operating in <strong>adversarial environments</strong> with possible
+            adversaries.</li>
           <li>Aims to <strong>allow intended use</strong> and <strong>prevent unintended use</strong>.</li>
           <li>Focus: <em>why systems are insecure</em> and <em>how to make them secure</em> — not how to break in.</li>
         </ul>
@@ -112,7 +120,9 @@
       </div>
 
       <div class="callout callout-info">
-        <strong>Ethical Reminder:</strong> "With great power comes great responsibility!" — Course knowledge should never be used for malicious cracking. If you discover a security hole, contact the vendor; experiment only on your own machines/networks.
+        <strong>Ethical Reminder:</strong> "With great power comes great responsibility!" — Course knowledge should
+        never be used for malicious cracking. If you discover a security hole, contact the vendor; experiment only on
+        your own machines/networks.
       </div>
     </section>
 
@@ -120,7 +130,8 @@
     <section class="card reveal" id="lecture-2">
       <div class="card-badge">Lecture 2</div>
       <h2>Security Goals &amp; Attacks</h2>
-      <p class="card-intro">Deep dive into the CIA Triad, additional properties, and the taxonomy of security attacks.</p>
+      <p class="card-intro">Deep dive into the CIA Triad, additional properties, and the taxonomy of security attacks.
+      </p>
 
       <div class="topic-block">
         <h3>📖 Common Criteria (CC) Terminology</h3>
@@ -139,14 +150,19 @@
         <h4>🔒 Confidentiality (Secrecy &amp; Privacy)</h4>
         <ul>
           <li><strong>Secrecy:</strong> Protecting unauthorized information access and disclosure.</li>
-          <li><strong>Privacy:</strong> Protecting personal/proprietary information — individuals control what info is collected, stored, and disclosed.</li>
+          <li><strong>Privacy:</strong> Protecting personal/proprietary information — individuals control what info is
+            collected, stored, and disclosed.</li>
           <li>Historical: Julius Caesar used a simple cipher to communicate with generals.</li>
         </ul>
         <p><strong>Tools of Confidentiality:</strong></p>
         <ul>
-          <li><strong>Encryption:</strong> Transform info using a secret key; can only be read with the decryption key.</li>
-          <li><strong>Access Control:</strong> Rules/policies limiting access to those with "need to know" — by identity or role.</li>
-          <li><strong>Authentication:</strong> Determining identity via something you <em>have</em> (smart card), <em>know</em> (password), or <em>are</em> (biometric).</li>
+          <li><strong>Encryption:</strong> Transform info using a secret key; can only be read with the decryption key.
+          </li>
+          <li><strong>Access Control:</strong> Rules/policies limiting access to those with "need to know" — by identity
+            or role.</li>
+          <li><strong>Authentication:</strong> Determining identity via something you <em>have</em> (smart card),
+            <em>know</em> (password), or <em>are</em> (biometric).
+          </li>
           <li><strong>Authorization:</strong> Determining if a person/system is allowed access based on policy.</li>
           <li><strong>Physical Security:</strong> Locks, windowless rooms, Faraday cages, etc.</li>
         </ul>
@@ -154,19 +170,23 @@
         <h4>✅ Integrity</h4>
         <ul>
           <li><strong>Data Integrity:</strong> Info/programs changed only in specified, authorized manner.</li>
-          <li><strong>System Integrity:</strong> System performs its intended function, free from unauthorized manipulation.</li>
+          <li><strong>System Integrity:</strong> System performs its intended function, free from unauthorized
+            manipulation.</li>
         </ul>
         <p><strong>Tools of Integrity:</strong></p>
         <ul>
           <li><strong>Backups:</strong> Periodic archiving of data.</li>
-          <li><strong>Checksums:</strong> Map file contents to a numerical value; even a single bit flip changes the output.</li>
-          <li><strong>Data Correcting Codes:</strong> Store data so small changes are detected and automatically corrected.</li>
+          <li><strong>Checksums:</strong> Map file contents to a numerical value; even a single bit flip changes the
+            output.</li>
+          <li><strong>Data Correcting Codes:</strong> Store data so small changes are detected and automatically
+            corrected.</li>
         </ul>
 
         <h4>🟢 Availability</h4>
         <ul>
           <li>Ensuring timely, reliable access to information or systems.</li>
-          <li>Loss can be from <strong>accidental</strong> events (fire, disk failure) or <strong>malicious</strong> attacks (DDoS).</li>
+          <li>Loss can be from <strong>accidental</strong> events (fire, disk failure) or <strong>malicious</strong>
+            attacks (DDoS).</li>
         </ul>
         <p><strong>Tools:</strong> Physical protections, computational redundancies (fallback servers).</p>
       </div>
@@ -176,12 +196,24 @@
         <div class="table-wrapper">
           <table>
             <thead>
-              <tr><th>Property</th><th>Description</th></tr>
+              <tr>
+                <th>Property</th>
+                <th>Description</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td><strong>Authenticity</strong></td><td>Entity/data origin is genuine, verifiable, and trusted. Mechanism: Digital Signature.</td></tr>
-              <tr><td><strong>Non-Repudiation</strong></td><td>Actions traceable; a party cannot deny a certain action. Mechanism: Secure Audit Trail.</td></tr>
-              <tr><td><strong>Anonymity</strong></td><td>Records/transactions not attributable to any individual. Tools: Mixing, Proxies, Pseudonyms.</td></tr>
+              <tr>
+                <td><strong>Authenticity</strong></td>
+                <td>Entity/data origin is genuine, verifiable, and trusted. Mechanism: Digital Signature.</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Repudiation</strong></td>
+                <td>Actions traceable; a party cannot deny a certain action. Mechanism: Secure Audit Trail.</td>
+              </tr>
+              <tr>
+                <td><strong>Anonymity</strong></td>
+                <td>Records/transactions not attributable to any individual. Tools: Mixing, Proxies, Pseudonyms.</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -205,7 +237,8 @@
               <li><strong>Masquerade:</strong> Fabricating information appearing to be from another source.</li>
               <li><strong>Modification (Alteration):</strong> Unauthorized modification of information.</li>
               <li><strong>Replay:</strong> Observe, analyze, then replay captured data.</li>
-              <li><strong>DoS:</strong> Interruption/degradation of data service (e.g., email spam filling mail queue).</li>
+              <li><strong>DoS:</strong> Interruption/degradation of data service (e.g., email spam filling mail queue).
+              </li>
             </ul>
           </div>
         </div>
@@ -221,11 +254,15 @@
       <div class="topic-block">
         <h3>🔐 Encryption Fundamentals</h3>
         <ul>
-          <li>Goal: Allow Alice &amp; Bob to communicate confidentially over an insecure channel subject to eavesdropping.</li>
-          <li><strong>Plaintext (M)</strong> → Encryption Algorithm <strong>E</strong> → <strong>Ciphertext (C)</strong>.</li>
+          <li>Goal: Allow Alice &amp; Bob to communicate confidentially over an insecure channel subject to
+            eavesdropping.</li>
+          <li><strong>Plaintext (M)</strong> → Encryption Algorithm <strong>E</strong> → <strong>Ciphertext
+              (C)</strong>.</li>
           <li>Equations: <code>C = E(M)</code> and <code>M = D(C)</code>.</li>
-          <li>Encryption/decryption algorithms are <strong>public</strong>; only the <strong>key</strong> is secret.</li>
-          <li>If the decryption key can be derived from the encryption key → encryption key must also be kept secret.</li>
+          <li>Encryption/decryption algorithms are <strong>public</strong>; only the <strong>key</strong> is secret.
+          </li>
+          <li>If the decryption key can be derived from the encryption key → encryption key must also be kept secret.
+          </li>
         </ul>
       </div>
 
@@ -246,7 +283,8 @@
         <h3>🏛️ Caesar Cipher</h3>
         <ul>
           <li>Replace each letter with the one "three over" in the alphabet — a <strong>shift cipher</strong>.</li>
-          <li>Formula: <code>s(c, k)</code> where c = letter, k = key. If k &gt; 0 → forward shift (encrypt); k &lt; 0 → backward (decrypt).</li>
+          <li>Formula: <code>s(c, k)</code> where c = letter, k = key. If k &gt; 0 → forward shift (encrypt); k &lt; 0 →
+            backward (decrypt).</li>
           <li>Example: <code>s(A, 3) = D</code>, <code>s(D, -3) = A</code>.</li>
           <li>Uses <strong>modulo operation</strong> for circular wrap-around.</li>
         </ul>
@@ -281,13 +319,18 @@
         <ul>
           <li>Try different probable keys over ciphertext to decrypt it to meaningful text.</li>
           <li>Encryption/decryption functions are <strong>open</strong>; only the key is secret.</li>
-          <li>If plaintext is arbitrary binary → attack <em>cannot</em> succeed (no way to distinguish valid message).</li>
-          <li>If plaintext is <strong>natural language</strong> → adversary hopes only a small subset of decryption results will be meaningful.</li>
-          <li>Example: decrypting to "NGGNPXNGQNJABAVEIVARORNPU" → dismiss! Decrypting to "ATTACKATDAWNONIRVINEBEACH" → found it!</li>
+          <li>If plaintext is arbitrary binary → attack <em>cannot</em> succeed (no way to distinguish valid message).
+          </li>
+          <li>If plaintext is <strong>natural language</strong> → adversary hopes only a small subset of decryption
+            results will be meaningful.</li>
+          <li>Example: decrypting to "NGGNPXNGQNJABAVEIVARORNPU" → dismiss! Decrypting to "ATTACKATDAWNONIRVINEBEACH" →
+            found it!</li>
           <li>Key should be a <strong>sufficiently long random value</strong> to make exhaustive search infeasible.</li>
         </ul>
         <div class="callout callout-warn">
-          <strong>Unicity Connection:</strong> For English + 256-bit AES, the unicity distance is about <strong>304 bits (38 ASCII characters)</strong> — only half a line of text! Brute-force is likely to succeed for natural-language messages that are not too short.
+          <strong>Unicity Connection:</strong> For English + 256-bit AES, the unicity distance is about <strong>304 bits
+            (38 ASCII characters)</strong> — only half a line of text! Brute-force is likely to succeed for
+          natural-language messages that are not too short.
         </div>
       </div>
 
@@ -296,9 +339,12 @@
         <ul>
           <li>Charlie sits between Alice and Bob; can <strong>view, change, add, or delete</strong> traffic.</li>
           <li>Charlie could be: ISP, VPN provider, WiFi provider, an attacker re-routing connections.</li>
-          <li>Straightforward crypto ensures confidentiality but <strong>not authenticity/integrity</strong> if adversary can modify ciphertext.</li>
-          <li>Adversary can alter ciphertext/signature but cannot choose or figure out resulting plaintext (no decryption key).</li>
-          <li>Effective only when any arbitrary bit sequence is a possible message (e.g., transmitting a random symmetric key).</li>
+          <li>Straightforward crypto ensures confidentiality but <strong>not authenticity/integrity</strong> if
+            adversary can modify ciphertext.</li>
+          <li>Adversary can alter ciphertext/signature but cannot choose or figure out resulting plaintext (no
+            decryption key).</li>
+          <li>Effective only when any arbitrary bit sequence is a possible message (e.g., transmitting a random
+            symmetric key).</li>
         </ul>
       </div>
     </section>
@@ -307,15 +353,22 @@
     <section class="card reveal" id="lecture-6">
       <div class="card-badge">Lecture 6</div>
       <h2>Cryptanalysis, Block Ciphers &amp; Modes</h2>
-      <p class="card-intro">Attack classification, substitution ciphers, block cipher structure, padding, and modes of operation.</p>
+      <p class="card-intro">Attack classification, substitution ciphers, block cipher structure, padding, and modes of
+        operation.</p>
 
       <div class="topic-block">
         <h3>🔍 Cryptosystem Attacks (Cryptanalysis)</h3>
-        <p>We assume the cryptanalyst <strong>knows the algorithms</strong> — only the keys are secret (<strong>open design principle</strong>). Security by obscurity fails because info can leak (stolen docs, bribed programmers, reverse engineering).</p>
+        <p>We assume the cryptanalyst <strong>knows the algorithms</strong> — only the keys are secret (<strong>open
+            design principle</strong>). Security by obscurity fails because info can leak (stolen docs, bribed
+          programmers, reverse engineering).</p>
         <div class="table-wrapper">
           <table>
             <thead>
-              <tr><th>Attack Type</th><th>What Cryptanalyst Has</th><th>Goal</th></tr>
+              <tr>
+                <th>Attack Type</th>
+                <th>What Cryptanalyst Has</th>
+                <th>Goal</th>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -331,7 +384,8 @@
               <tr>
                 <td><strong>Chosen-Plaintext</strong></td>
                 <td>Can choose plaintexts and get ciphertexts (same K)</td>
-                <td>Infer key behavior. Variants: <em>offline</em> (choose all in advance) and <em>adaptive</em> (iterative, based on previous results)</td>
+                <td>Infer key behavior. Variants: <em>offline</em> (choose all in advance) and <em>adaptive</em>
+                  (iterative, based on previous results)</td>
               </tr>
               <tr>
                 <td><strong>Chosen-Ciphertext</strong></td>
@@ -349,17 +403,20 @@
         <ul>
           <li>Each letter is <strong>uniquely replaced</strong> by another.</li>
           <li>Caesar cipher is a special case (shift by 3).</li>
-          <li>Easily broken via <strong>frequency analysis</strong> — letters in English are not uniformly distributed (E ≈ 12%, T &lt; 10%).</li>
+          <li>Easily broken via <strong>frequency analysis</strong> — letters in English are not uniformly distributed
+            (E ≈ 12%, T &lt; 10%).</li>
         </ul>
         <h4>Polygraphic Substitution Cipher</h4>
         <ul>
           <li>Encrypt <strong>digraphs</strong> (letter pairs) instead of single letters.</li>
-          <li>Uses a 2D table (first letter → row, second → column) called a <strong>S-box (substitution box)</strong>.</li>
+          <li>Uses a 2D table (first letter → row, second → column) called a <strong>S-box (substitution box)</strong>.
+          </li>
           <li>Extends to binary values.</li>
         </ul>
         <h4>One-Time Pads</h4>
         <ul>
-          <li>Provide <strong>perfect security</strong> but have weaknesses: key must be as long as plaintext, keys can never be reused.</li>
+          <li>Provide <strong>perfect security</strong> but have weaknesses: key must be as long as plaintext, keys can
+            never be reused.</li>
           <li>Repeated use allowed the U.S. to break Soviet spy communications during the Cold War.</li>
         </ul>
       </div>
@@ -379,8 +436,8 @@
           <p>If n is already a multiple of b → add a <strong>full block</strong> of padding (to remove ambiguity).</p>
         </div>
         <div class="example-box">
-          <strong>Example:</strong> Block size = 128 bits (16 bytes), Plaintext = "Roberto" (7 bytes).<br/>
-          k = 16 − 7 = 9 → Pad with 9 bytes each valued 0x09.<br/>
+          <strong>Example:</strong> Block size = 128 bits (16 bytes), Plaintext = "Roberto" (7 bytes).<br />
+          k = 16 − 7 = 9 → Pad with 9 bytes each valued 0x09.<br />
           Padded: "Roberto" + <code>09 09 09 09 09 09 09 09 09</code> = 16 bytes.
         </div>
       </div>
@@ -425,16 +482,19 @@
       <div class="topic-block">
         <h3>🔑 Vigenère Cipher</h3>
         <ul>
-          <li>A <strong>polyalphabetic substitution cipher</strong> — uses a keyword to vary the shift for each letter.</li>
+          <li>A <strong>polyalphabetic substitution cipher</strong> — uses a keyword to vary the shift for each letter.
+          </li>
           <li>Key is repeated to match the plaintext length.</li>
           <li>Encryption: <code>Cᵢ = (Pᵢ + Kᵢ) mod 26</code></li>
           <li>Decryption: <code>Pᵢ = (Cᵢ − Kᵢ) mod 26</code></li>
-          <li><strong>Stronger than Caesar</strong> because each letter can shift by a different amount, defeating simple frequency analysis.</li>
-          <li>However, can still be broken using statistical techniques (Kasiski examination, Index of Coincidence).</li>
+          <li><strong>Stronger than Caesar</strong> because each letter can shift by a different amount, defeating
+            simple frequency analysis.</li>
+          <li>However, can still be broken using statistical techniques (Kasiski examination, Index of Coincidence).
+          </li>
         </ul>
         <div class="example-box">
-          <strong>Example:</strong> Encrypt "HELLO" with key "KEY"<br/>
-          Key stream: K E Y K E<br/>
+          <strong>Example:</strong> Encrypt "HELLO" with key "KEY"<br />
+          Key stream: K E Y K E<br />
           H+K=R, E+E=I, L+Y=J, L+K=V, O+E=S → Ciphertext: <code>RIJVS</code>
         </div>
       </div>
@@ -454,14 +514,19 @@
 
         <h4>Encryption Rules</h4>
         <ol>
-          <li>Split plaintext into <strong>digraphs</strong>. If a pair has two same letters, insert 'X' between them. If odd length, pad with 'X'.</li>
-          <li><strong>Same Row:</strong> Replace each letter with the one to its <strong>right</strong> (wrap around).</li>
+          <li>Split plaintext into <strong>digraphs</strong>. If a pair has two same letters, insert 'X' between them.
+            If odd length, pad with 'X'.</li>
+          <li><strong>Same Row:</strong> Replace each letter with the one to its <strong>right</strong> (wrap around).
+          </li>
           <li><strong>Same Column:</strong> Replace each letter with the one <strong>below</strong> (wrap around).</li>
-          <li><strong>Rectangle:</strong> Each letter takes the letter in its own row but the <strong>other letter's column</strong>.</li>
+          <li><strong>Rectangle:</strong> Each letter takes the letter in its own row but the <strong>other letter's
+              column</strong>.</li>
         </ol>
 
         <div class="callout callout-info">
-          <strong>Why stronger than simple substitution?</strong> Encrypting pairs obscures single-letter frequency statistics. There are 26² = 676 possible digraphs vs. only 26 single letters, making frequency analysis much harder.
+          <strong>Why stronger than simple substitution?</strong> Encrypting pairs obscures single-letter frequency
+          statistics. There are 26² = 676 possible digraphs vs. only 26 single letters, making frequency analysis much
+          harder.
         </div>
       </div>
 
@@ -485,8 +550,10 @@
 
       <div class="topic-block">
         <h3>📏 Definition</h3>
-        <p>Unicity Distance is the <strong>minimum amount of ciphertext</strong> required to <strong>uniquely determine</strong> the correct encryption key.</p>
-        <p>In simple words: It tells us how much encrypted data is needed so that <strong>only ONE key</strong> can correctly decrypt it.</p>
+        <p>Unicity Distance is the <strong>minimum amount of ciphertext</strong> required to <strong>uniquely
+            determine</strong> the correct encryption key.</p>
+        <p>In simple words: It tells us how much encrypted data is needed so that <strong>only ONE key</strong> can
+          correctly decrypt it.</p>
       </div>
 
       <div class="topic-block">
@@ -535,7 +602,9 @@
       </div>
 
       <div class="callout callout-warn">
-        <strong>Key Fact:</strong> For English + 256-bit AES, the unicity distance is about <strong>304 bits (38 ASCII characters)</strong> — only half a line of text. This means brute-force decryption is likely to succeed for natural-language messages that are not too short.
+        <strong>Key Fact:</strong> For English + 256-bit AES, the unicity distance is about <strong>304 bits (38 ASCII
+          characters)</strong> — only half a line of text. This means brute-force decryption is likely to succeed for
+        natural-language messages that are not too short.
       </div>
     </section>
 
@@ -549,25 +618,42 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q1</span>
-          Define system integrity in computer security. Explain how integrity differs from confidentiality with an example.
+          Define system integrity in computer security. Explain how integrity differs from confidentiality with an
+          example.
         </div>
         <div class="answer">
           <h4>System Integrity</h4>
-          <p>System integrity assures that a system <strong>performs its intended function in an unimpaired manner</strong>, free from deliberate or inadvertent unauthorized manipulation of the system.</p>
+          <p>System integrity assures that a system <strong>performs its intended function in an unimpaired
+              manner</strong>, free from deliberate or inadvertent unauthorized manipulation of the system.</p>
 
           <h4>Integrity vs. Confidentiality</h4>
           <div class="table-wrapper">
             <table>
-              <thead><tr><th>Aspect</th><th>Confidentiality</th><th>Integrity</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Aspect</th>
+                  <th>Confidentiality</th>
+                  <th>Integrity</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td>Definition</td><td>Preventing unauthorized <strong>reading/disclosure</strong> of information</td><td>Preventing unauthorized <strong>modification/alteration</strong> of information</td></tr>
-                <tr><td>Focus</td><td>Who can <em>see</em> the data</td><td>Who can <em>change</em> the data</td></tr>
+                <tr>
+                  <td>Definition</td>
+                  <td>Preventing unauthorized <strong>reading/disclosure</strong> of information</td>
+                  <td>Preventing unauthorized <strong>modification/alteration</strong> of information</td>
+                </tr>
+                <tr>
+                  <td>Focus</td>
+                  <td>Who can <em>see</em> the data</td>
+                  <td>Who can <em>change</em> the data</td>
+                </tr>
               </tbody>
             </table>
           </div>
           <div class="example-box">
-            <strong>Example:</strong> Consider an employee salary database:<br/>
-            • If salary data is <strong>leaked</strong> to unauthorized people → <strong>Confidentiality</strong> failure.<br/>
+            <strong>Example:</strong> Consider an employee salary database:<br />
+            • If salary data is <strong>leaked</strong> to unauthorized people → <strong>Confidentiality</strong>
+            failure.<br />
             • If salary numbers are <strong>altered</strong> without authorization → <strong>Integrity</strong> failure.
           </div>
         </div>
@@ -583,19 +669,30 @@
           <p>The <strong>CIA Triad</strong> is the foundational model for information security:</p>
           <div class="table-wrapper">
             <table>
-              <thead><tr><th>Component</th><th>Banking Example</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Banking Example</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td><strong>🔒 Confidentiality</strong></td>
-                  <td>Customer account data, balances, and transaction details are <strong>encrypted</strong> (both at rest and in transit) and protected by strict <strong>access controls</strong>. Only authorized personnel with proper authentication can view sensitive records.</td>
+                  <td>Customer account data, balances, and transaction details are <strong>encrypted</strong> (both at
+                    rest and in transit) and protected by strict <strong>access controls</strong>. Only authorized
+                    personnel with proper authentication can view sensitive records.</td>
                 </tr>
                 <tr>
                   <td><strong>✅ Integrity</strong></td>
-                  <td>Transactions are protected by <strong>checksums, digital signatures, and audit logs</strong>. Any unauthorized modification of account balances or transfer records would be detected. Double-entry accounting ensures consistency.</td>
+                  <td>Transactions are protected by <strong>checksums, digital signatures, and audit logs</strong>. Any
+                    unauthorized modification of account balances or transfer records would be detected. Double-entry
+                    accounting ensures consistency.</td>
                 </tr>
                 <tr>
                   <td><strong>🟢 Availability</strong></td>
-                  <td><strong>Redundant servers, failover systems, and DDoS protection</strong> ensure banking services (ATMs, online banking, mobile apps) remain accessible 24/7. Disaster recovery plans maintain uptime during outages.</td>
+                  <td><strong>Redundant servers, failover systems, and DDoS protection</strong> ensure banking services
+                    (ATMs, online banking, mobile apps) remain accessible 24/7. Disaster recovery plans maintain uptime
+                    during outages.</td>
                 </tr>
               </tbody>
             </table>
@@ -607,22 +704,30 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q3</span>
-          Describe different types of cryptanalysis attacks. Briefly explain ciphertext-only and chosen-plaintext attacks.
+          Describe different types of cryptanalysis attacks. Briefly explain ciphertext-only and chosen-plaintext
+          attacks.
         </div>
         <div class="answer">
-          <p>Cryptanalysis is the science of attacking cryptosystems. We assume the analyst knows the algorithms (open design principle) — only the keys are secret.</p>
+          <p>Cryptanalysis is the science of attacking cryptosystems. We assume the analyst knows the algorithms (open
+            design principle) — only the keys are secret.</p>
 
           <h4>Types of Attacks:</h4>
           <ol>
-            <li><strong>Ciphertext-Only Attack:</strong> The attacker has access to one or more ciphertexts (all encrypted with the same key K). Goal: determine the plaintext or discover K. This is the <em>weakest</em> attack model — the attacker has minimal information.</li>
-            <li><strong>Known-Plaintext Attack:</strong> Attacker has one or more plaintext-ciphertext pairs. Goal: determine key K.</li>
-            <li><strong>Chosen-Plaintext Attack:</strong> The attacker can <strong>choose</strong> plaintext messages and observe the corresponding ciphertexts (same key K). This allows the analyst to strategically probe the cipher.
+            <li><strong>Ciphertext-Only Attack:</strong> The attacker has access to one or more ciphertexts (all
+              encrypted with the same key K). Goal: determine the plaintext or discover K. This is the <em>weakest</em>
+              attack model — the attacker has minimal information.</li>
+            <li><strong>Known-Plaintext Attack:</strong> Attacker has one or more plaintext-ciphertext pairs. Goal:
+              determine key K.</li>
+            <li><strong>Chosen-Plaintext Attack:</strong> The attacker can <strong>choose</strong> plaintext messages
+              and observe the corresponding ciphertexts (same key K). This allows the analyst to strategically probe the
+              cipher.
               <ul>
                 <li><em>Offline:</em> All plaintexts chosen in advance.</li>
                 <li><em>Adaptive:</em> Plaintexts chosen iteratively based on previous results.</li>
               </ul>
             </li>
-            <li><strong>Chosen-Ciphertext Attack:</strong> Attacker can choose ciphertexts and obtain corresponding plaintexts. Also has offline and adaptive variants.</li>
+            <li><strong>Chosen-Ciphertext Attack:</strong> Attacker can choose ciphertexts and obtain corresponding
+              plaintexts. Also has offline and adaptive variants.</li>
           </ol>
         </div>
       </div>
@@ -635,17 +740,23 @@
         </div>
         <div class="answer">
           <h4>Brute Force Attack</h4>
-          <p>An <strong>exhaustive key search</strong> — the attacker tries every possible key to decrypt ciphertext until meaningful plaintext appears. The encryption and decryption algorithms are public; only the key is secret.</p>
+          <p>An <strong>exhaustive key search</strong> — the attacker tries every possible key to decrypt ciphertext
+            until meaningful plaintext appears. The encryption and decryption algorithms are public; only the key is
+            secret.</p>
 
           <h4>When Brute Force Becomes Practical:</h4>
           <ol>
             <li><strong>Small keyspace:</strong> If the number of possible keys is small enough to enumerate.</li>
             <li><strong>Weak/predictable keys:</strong> When keys are not truly random (e.g., weak passwords).</li>
-            <li><strong>High computational resources:</strong> Attacker has access to powerful hardware (GPUs, ASICs, botnets).</li>
-            <li><strong>Sufficient ciphertext available:</strong> Enough ciphertext that only one valid plaintext exists (related to unicity distance). For natural language, the attacker can recognize meaningful text and confirm the correct key.</li>
+            <li><strong>High computational resources:</strong> Attacker has access to powerful hardware (GPUs, ASICs,
+              botnets).</li>
+            <li><strong>Sufficient ciphertext available:</strong> Enough ciphertext that only one valid plaintext exists
+              (related to unicity distance). For natural language, the attacker can recognize meaningful text and
+              confirm the correct key.</li>
           </ol>
           <div class="callout callout-info">
-            If the plaintext is an arbitrary binary string, brute force <strong>cannot succeed</strong> — there's no way to distinguish a valid message from random garbage.
+            If the plaintext is an arbitrary binary string, brute force <strong>cannot succeed</strong> — there's no way
+            to distinguish a valid message from random garbage.
           </div>
         </div>
       </div>
@@ -654,29 +765,55 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q5</span>
-          Explain the concept of a block cipher. Discuss different types of block cipher modes of operation (ECB, CBC, CFB, OFB). Mention one advantage and one disadvantage of any one mode.
+          Explain the concept of a block cipher. Discuss different types of block cipher modes of operation (ECB, CBC,
+          CFB, OFB). Mention one advantage and one disadvantage of any one mode.
         </div>
         <div class="answer">
           <h4>Block Cipher</h4>
-          <p>A block cipher encrypts <strong>fixed-size blocks</strong> of plaintext (e.g., 64 or 128 bits) using the same secret key. The plaintext must be padded so its length is a multiple of the block size.</p>
+          <p>A block cipher encrypts <strong>fixed-size blocks</strong> of plaintext (e.g., 64 or 128 bits) using the
+            same secret key. The plaintext must be padded so its length is a multiple of the block size.</p>
 
           <h4>Modes of Operation</h4>
           <div class="table-wrapper">
             <table>
-              <thead><tr><th>Mode</th><th>How It Works</th><th>Key Feature</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Mode</th>
+                  <th>How It Works</th>
+                  <th>Key Feature</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>ECB</strong></td><td>Each block encrypted independently with same key</td><td>Simplest mode; parallelizable</td></tr>
-                <tr><td><strong>CBC</strong></td><td>Each plaintext block XORed with previous ciphertext block; uses IV</td><td>Hides patterns; most common</td></tr>
-                <tr><td><strong>CFB</strong></td><td>Previous ciphertext fed back as input; stream-like mode</td><td>Useful for streaming data</td></tr>
-                <tr><td><strong>OFB</strong></td><td>Generates keystream from IV; XORed with plaintext</td><td>No error propagation</td></tr>
+                <tr>
+                  <td><strong>ECB</strong></td>
+                  <td>Each block encrypted independently with same key</td>
+                  <td>Simplest mode; parallelizable</td>
+                </tr>
+                <tr>
+                  <td><strong>CBC</strong></td>
+                  <td>Each plaintext block XORed with previous ciphertext block; uses IV</td>
+                  <td>Hides patterns; most common</td>
+                </tr>
+                <tr>
+                  <td><strong>CFB</strong></td>
+                  <td>Previous ciphertext fed back as input; stream-like mode</td>
+                  <td>Useful for streaming data</td>
+                </tr>
+                <tr>
+                  <td><strong>OFB</strong></td>
+                  <td>Generates keystream from IV; XORed with plaintext</td>
+                  <td>No error propagation</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <div class="example-box">
-            <strong>CBC — Advantage &amp; Disadvantage:</strong><br/>
-            ✅ <strong>Advantage:</strong> Hides plaintext patterns — identical plaintext blocks produce different ciphertext blocks (due to chaining).<br/>
-            ❌ <strong>Disadvantage:</strong> Requires sequential processing (no parallelization for encryption). Not suitable for packet-loss applications (music/video streaming) because errors propagate.
+            <strong>CBC — Advantage &amp; Disadvantage:</strong><br />
+            ✅ <strong>Advantage:</strong> Hides plaintext patterns — identical plaintext blocks produce different
+            ciphertext blocks (due to chaining).<br />
+            ❌ <strong>Disadvantage:</strong> Requires sequential processing (no parallelization for encryption). Not
+            suitable for packet-loss applications (music/video streaming) because errors propagate.
           </div>
         </div>
       </div>
@@ -689,18 +826,23 @@
         </div>
         <div class="answer">
           <h4>PKCS#5 Padding Method</h4>
-          <p>When plaintext length is not a multiple of the block size, PKCS#5 appends <strong>k bytes each with value k</strong>, where:</p>
+          <p>When plaintext length is not a multiple of the block size, PKCS#5 appends <strong>k bytes each with value
+              k</strong>, where:</p>
           <div class="formula-box">
-            <code>k = b − (n mod b)</code><br/>
+            <code>k = b − (n mod b)</code><br />
             where <strong>b</strong> = block size in bytes, <strong>n</strong> = plaintext length in bytes.
           </div>
-          <p>If n is already a multiple of b, a <strong>full block of padding</strong> is added (k = b), where each byte has value b.</p>
+          <p>If n is already a multiple of b, a <strong>full block of padding</strong> is added (k = b), where each byte
+            has value b.</p>
 
           <h4>Why Padding is Necessary</h4>
           <ol>
-            <li>Block ciphers <strong>require</strong> that the plaintext length be an exact multiple of the block size. The last block must be filled.</li>
-            <li>Padding must be <strong>unambiguous</strong> — you can't just add zeros, because the receiver wouldn't know how many padding bytes to strip off.</li>
-            <li>PKCS#5's design makes <strong>unpadding deterministic</strong>: read the last byte's value → that tells you exactly how many padding bytes to remove.</li>
+            <li>Block ciphers <strong>require</strong> that the plaintext length be an exact multiple of the block size.
+              The last block must be filled.</li>
+            <li>Padding must be <strong>unambiguous</strong> — you can't just add zeros, because the receiver wouldn't
+              know how many padding bytes to strip off.</li>
+            <li>PKCS#5's design makes <strong>unpadding deterministic</strong>: read the last byte's value → that tells
+              you exactly how many padding bytes to remove.</li>
           </ol>
         </div>
       </div>
@@ -714,17 +856,45 @@
         <div class="answer">
           <div class="table-wrapper">
             <table>
-              <thead><tr><th>Feature</th><th>Caesar Cipher</th><th>Vigenère Cipher</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Caesar Cipher</th>
+                  <th>Vigenère Cipher</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td>Type</td><td>Monoalphabetic substitution</td><td><strong>Polyalphabetic</strong> substitution</td></tr>
-                <tr><td>Key</td><td>Single fixed shift value</td><td>Keyword (multiple shifts)</td></tr>
-                <tr><td>How it works</td><td>All letters shifted by <strong>same</strong> amount</td><td>Each letter shifted by a <strong>different</strong> amount based on the key</td></tr>
-                <tr><td>Frequency analysis</td><td>Easily broken — letter frequency preserved</td><td>Much harder — same letter can encrypt to different ciphers</td></tr>
-                <tr><td>Keyspace</td><td>Only 26 possible keys</td><td>26ⁿ keys for keyword length n</td></tr>
+                <tr>
+                  <td>Type</td>
+                  <td>Monoalphabetic substitution</td>
+                  <td><strong>Polyalphabetic</strong> substitution</td>
+                </tr>
+                <tr>
+                  <td>Key</td>
+                  <td>Single fixed shift value</td>
+                  <td>Keyword (multiple shifts)</td>
+                </tr>
+                <tr>
+                  <td>How it works</td>
+                  <td>All letters shifted by <strong>same</strong> amount</td>
+                  <td>Each letter shifted by a <strong>different</strong> amount based on the key</td>
+                </tr>
+                <tr>
+                  <td>Frequency analysis</td>
+                  <td>Easily broken — letter frequency preserved</td>
+                  <td>Much harder — same letter can encrypt to different ciphers</td>
+                </tr>
+                <tr>
+                  <td>Keyspace</td>
+                  <td>Only 26 possible keys</td>
+                  <td>26ⁿ keys for keyword length n</td>
+                </tr>
               </tbody>
             </table>
           </div>
-          <p>The fundamental improvement is that Vigenère uses <strong>varying shifts</strong> from a repeating keyword, which means the same plaintext letter can produce <strong>different ciphertext letters</strong> at different positions. This defeats simple frequency analysis that easily cracks Caesar.</p>
+          <p>The fundamental improvement is that Vigenère uses <strong>varying shifts</strong> from a repeating keyword,
+            which means the same plaintext letter can produce <strong>different ciphertext letters</strong> at different
+            positions. This defeats simple frequency analysis that easily cracks Caesar.</p>
         </div>
       </div>
 
@@ -732,26 +902,34 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q8</span>
-          Describe the Playfair cipher encryption technique. Why is it considered stronger than simple substitution ciphers?
+          Describe the Playfair cipher encryption technique. Why is it considered stronger than simple substitution
+          ciphers?
         </div>
         <div class="answer">
           <h4>Playfair Encryption Technique</h4>
           <ol>
-            <li><strong>Build a 5×5 Key Matrix:</strong> Write the keyword (removing duplicates), then fill remaining cells with unused alphabet letters. I and J share one cell.</li>
-            <li><strong>Prepare Plaintext:</strong> Split into digraphs (2-letter pairs). If a pair has identical letters, insert 'X' between them. If odd length, pad with 'X'.</li>
+            <li><strong>Build a 5×5 Key Matrix:</strong> Write the keyword (removing duplicates), then fill remaining
+              cells with unused alphabet letters. I and J share one cell.</li>
+            <li><strong>Prepare Plaintext:</strong> Split into digraphs (2-letter pairs). If a pair has identical
+              letters, insert 'X' between them. If odd length, pad with 'X'.</li>
             <li><strong>Encrypt Each Digraph:</strong>
               <ul>
-                <li><strong>Same Row:</strong> Replace each letter with the one to its <strong>right</strong> (wrap around).</li>
-                <li><strong>Same Column:</strong> Replace each letter with the one <strong>below</strong> (wrap around).</li>
-                <li><strong>Rectangle:</strong> Each letter replaced by the letter in its own row but the <strong>other letter's column</strong>.</li>
+                <li><strong>Same Row:</strong> Replace each letter with the one to its <strong>right</strong> (wrap
+                  around).</li>
+                <li><strong>Same Column:</strong> Replace each letter with the one <strong>below</strong> (wrap around).
+                </li>
+                <li><strong>Rectangle:</strong> Each letter replaced by the letter in its own row but the <strong>other
+                    letter's column</strong>.</li>
               </ul>
             </li>
           </ol>
 
           <h4>Why Stronger Than Simple Substitution?</h4>
           <ul>
-            <li>Encrypts <strong>letter pairs</strong>, not individual letters — obscures single-letter frequency statistics.</li>
-            <li>There are <strong>676 possible digraphs</strong> (26×26) vs. only 26 single letters, making frequency analysis significantly harder.</li>
+            <li>Encrypts <strong>letter pairs</strong>, not individual letters — obscures single-letter frequency
+              statistics.</li>
+            <li>There are <strong>676 possible digraphs</strong> (26×26) vs. only 26 single letters, making frequency
+              analysis significantly harder.</li>
             <li>The same letter can encrypt to <strong>different ciphertext letters</strong> depending on its pair.</li>
           </ul>
         </div>
@@ -761,11 +939,16 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q9</span>
-          An attacker intercepts encrypted messages and tries every possible key until meaningful text appears. Identify the attack. Which security principle is being challenged?
+          An attacker intercepts encrypted messages and tries every possible key until meaningful text appears. Identify
+          the attack. Which security principle is being challenged?
         </div>
         <div class="answer">
-          <p><strong>Attack:</strong> This is a <strong>Brute-Force Attack</strong> (Exhaustive Key Search). The attacker systematically tries every possible decryption key against the intercepted ciphertext until a meaningful plaintext is obtained.</p>
-          <p><strong>Security Principle Challenged:</strong> <strong>Confidentiality</strong>. The attacker is trying to read secret information that was meant to be kept private. If the attack succeeds, the encrypted data's secrecy is compromised.</p>
+          <p><strong>Attack:</strong> This is a <strong>Brute-Force Attack</strong> (Exhaustive Key Search). The
+            attacker systematically tries every possible decryption key against the intercepted ciphertext until a
+            meaningful plaintext is obtained.</p>
+          <p><strong>Security Principle Challenged:</strong> <strong>Confidentiality</strong>. The attacker is trying to
+            read secret information that was meant to be kept private. If the attack succeeds, the encrypted data's
+            secrecy is compromised.</p>
         </div>
       </div>
 
@@ -773,15 +956,22 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q10</span>
-          A hospital system was hacked and patient data was modified without authorization. Which component of the CIA triad was violated? Suggest two preventive measures.
+          A hospital system was hacked and patient data was modified without authorization. Which component of the CIA
+          triad was violated? Suggest two preventive measures.
         </div>
         <div class="answer">
-          <p><strong>Violated Component:</strong> <strong>Integrity</strong> — Patient data was <em>modified</em> without authorization. This is an unauthorized alteration of information, directly violating data integrity.</p>
+          <p><strong>Violated Component:</strong> <strong>Integrity</strong> — Patient data was <em>modified</em>
+            without authorization. This is an unauthorized alteration of information, directly violating data integrity.
+          </p>
 
           <h4>Two Preventive Measures:</h4>
           <ol>
-            <li><strong>Strict Access Control + Multi-Factor Authentication (MFA):</strong> Implement role-based access control (RBAC) ensuring only authorized medical staff can modify patient records, combined with MFA to verify identity before granting write access.</li>
-            <li><strong>Tamper-Evident Audit Logging with Integrity Checks:</strong> Maintain immutable audit logs recording every data modification (who, what, when). Use cryptographic checksums/digital signatures to detect any unauthorized changes to records.</li>
+            <li><strong>Strict Access Control + Multi-Factor Authentication (MFA):</strong> Implement role-based access
+              control (RBAC) ensuring only authorized medical staff can modify patient records, combined with MFA to
+              verify identity before granting write access.</li>
+            <li><strong>Tamper-Evident Audit Logging with Integrity Checks:</strong> Maintain immutable audit logs
+              recording every data modification (who, what, when). Use cryptographic checksums/digital signatures to
+              detect any unauthorized changes to records.</li>
           </ol>
         </div>
       </div>
@@ -790,17 +980,25 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">Q11</span>
-          An organization uses weak passwords for encrypted archives. Attackers successfully guess passwords using automated tools. What type of attack is this? How can it be prevented?
+          An organization uses weak passwords for encrypted archives. Attackers successfully guess passwords using
+          automated tools. What type of attack is this? How can it be prevented?
         </div>
         <div class="answer">
-          <p><strong>Attack Type:</strong> <strong>Password Guessing / Brute-Force Attack</strong> — specifically a <strong>dictionary-based automated attack</strong>. Automated tools systematically try common passwords, dictionary words, and variations.</p>
+          <p><strong>Attack Type:</strong> <strong>Password Guessing / Brute-Force Attack</strong> — specifically a
+            <strong>dictionary-based automated attack</strong>. Automated tools systematically try common passwords,
+            dictionary words, and variations.
+          </p>
 
           <h4>Prevention Measures:</h4>
           <ol>
-            <li><strong>Strong Passphrase Policy:</strong> Enforce minimum length, complexity requirements (uppercase, lowercase, numbers, symbols). Encourage passphrases over passwords.</li>
-            <li><strong>Rate Limiting &amp; Account Lockouts:</strong> Limit login attempts; temporarily lock accounts after repeated failures.</li>
-            <li><strong>Multi-Factor Authentication (MFA):</strong> Even if the password is guessed, a second factor (OTP, biometric, hardware key) blocks unauthorized access.</li>
-            <li><strong>Key Derivation Hardening:</strong> Use algorithms like <strong>PBKDF2, bcrypt, or Argon2</strong> to make password-based encryption computationally expensive to brute-force.</li>
+            <li><strong>Strong Passphrase Policy:</strong> Enforce minimum length, complexity requirements (uppercase,
+              lowercase, numbers, symbols). Encourage passphrases over passwords.</li>
+            <li><strong>Rate Limiting &amp; Account Lockouts:</strong> Limit login attempts; temporarily lock accounts
+              after repeated failures.</li>
+            <li><strong>Multi-Factor Authentication (MFA):</strong> Even if the password is guessed, a second factor
+              (OTP, biometric, hardware key) blocks unauthorized access.</li>
+            <li><strong>Key Derivation Hardening:</strong> Use algorithms like <strong>PBKDF2, bcrypt, or
+                Argon2</strong> to make password-based encryption computationally expensive to brute-force.</li>
           </ol>
         </div>
       </div>
@@ -822,12 +1020,64 @@
           <h4>Step 1: Assign Numerical Values (A=0, B=1, ... Z=25)</h4>
           <div class="table-wrapper">
             <table class="compact-table">
-              <thead><tr><th>Position</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Plaintext</strong></td><td>S</td><td>E</td><td>C</td><td>U</td><td>R</td><td>I</td><td>T</td><td>Y</td></tr>
-                <tr><td><strong>P value</strong></td><td>18</td><td>4</td><td>2</td><td>20</td><td>17</td><td>8</td><td>19</td><td>24</td></tr>
-                <tr><td><strong>Key</strong></td><td>K</td><td>E</td><td>Y</td><td>K</td><td>E</td><td>Y</td><td>K</td><td>E</td></tr>
-                <tr><td><strong>K value</strong></td><td>10</td><td>4</td><td>24</td><td>10</td><td>4</td><td>24</td><td>10</td><td>4</td></tr>
+                <tr>
+                  <td><strong>Plaintext</strong></td>
+                  <td>S</td>
+                  <td>E</td>
+                  <td>C</td>
+                  <td>U</td>
+                  <td>R</td>
+                  <td>I</td>
+                  <td>T</td>
+                  <td>Y</td>
+                </tr>
+                <tr>
+                  <td><strong>P value</strong></td>
+                  <td>18</td>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>20</td>
+                  <td>17</td>
+                  <td>8</td>
+                  <td>19</td>
+                  <td>24</td>
+                </tr>
+                <tr>
+                  <td><strong>Key</strong></td>
+                  <td>K</td>
+                  <td>E</td>
+                  <td>Y</td>
+                  <td>K</td>
+                  <td>E</td>
+                  <td>Y</td>
+                  <td>K</td>
+                  <td>E</td>
+                </tr>
+                <tr>
+                  <td><strong>K value</strong></td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>24</td>
+                  <td>10</td>
+                  <td>4</td>
+                  <td>24</td>
+                  <td>10</td>
+                  <td>4</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -835,11 +1085,53 @@
           <h4>Step 2: Encrypt — Cᵢ = (Pᵢ + Kᵢ) mod 26</h4>
           <div class="table-wrapper">
             <table class="compact-table">
-              <thead><tr><th>Position</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                  <th>6</th>
+                  <th>7</th>
+                  <th>8</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>P+K</strong></td><td>28</td><td>8</td><td>26</td><td>30</td><td>21</td><td>32</td><td>29</td><td>28</td></tr>
-                <tr><td><strong>mod 26</strong></td><td>2</td><td>8</td><td>0</td><td>4</td><td>21</td><td>6</td><td>3</td><td>2</td></tr>
-                <tr><td><strong>Cipher</strong></td><td>C</td><td>I</td><td>A</td><td>E</td><td>V</td><td>G</td><td>D</td><td>C</td></tr>
+                <tr>
+                  <td><strong>P+K</strong></td>
+                  <td>28</td>
+                  <td>8</td>
+                  <td>26</td>
+                  <td>30</td>
+                  <td>21</td>
+                  <td>32</td>
+                  <td>29</td>
+                  <td>28</td>
+                </tr>
+                <tr>
+                  <td><strong>mod 26</strong></td>
+                  <td>2</td>
+                  <td>8</td>
+                  <td>0</td>
+                  <td>4</td>
+                  <td>21</td>
+                  <td>6</td>
+                  <td>3</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><strong>Cipher</strong></td>
+                  <td>C</td>
+                  <td>I</td>
+                  <td>A</td>
+                  <td>E</td>
+                  <td>V</td>
+                  <td>G</td>
+                  <td>D</td>
+                  <td>C</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -854,7 +1146,8 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">B2</span>
-          Encrypt the plaintext "HIDE MONEY" using the Playfair Cipher with the key "MONARCHY". Construct the 5×5 matrix and show steps.
+          Encrypt the plaintext "HIDE MONEY" using the Playfair Cipher with the key "MONARCHY". Construct the 5×5 matrix
+          and show steps.
         </div>
         <div class="answer">
           <h4>Step 1: Build the 5×5 Key Matrix</h4>
@@ -863,24 +1156,61 @@
           <div class="matrix-display">
             <table class="matrix-table">
               <tbody>
-                <tr><td>M</td><td>O</td><td>N</td><td>A</td><td>R</td></tr>
-                <tr><td>C</td><td>H</td><td>Y</td><td>B</td><td>D</td></tr>
-                <tr><td>E</td><td>F</td><td>G</td><td>I/J</td><td>K</td></tr>
-                <tr><td>L</td><td>P</td><td>Q</td><td>S</td><td>T</td></tr>
-                <tr><td>U</td><td>V</td><td>W</td><td>X</td><td>Z</td></tr>
+                <tr>
+                  <td>M</td>
+                  <td>O</td>
+                  <td>N</td>
+                  <td>A</td>
+                  <td>R</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>H</td>
+                  <td>Y</td>
+                  <td>B</td>
+                  <td>D</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>F</td>
+                  <td>G</td>
+                  <td>I/J</td>
+                  <td>K</td>
+                </tr>
+                <tr>
+                  <td>L</td>
+                  <td>P</td>
+                  <td>Q</td>
+                  <td>S</td>
+                  <td>T</td>
+                </tr>
+                <tr>
+                  <td>U</td>
+                  <td>V</td>
+                  <td>W</td>
+                  <td>X</td>
+                  <td>Z</td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <h4>Step 2: Prepare Digraphs</h4>
           <p>Plaintext: HIDE MONEY → HIDEMONEY</p>
-          <p>Split into pairs: <strong>HI  DE  MO  NE  YX</strong></p>
+          <p>Split into pairs: <strong>HI DE MO NE YX</strong></p>
           <p class="note-small">(Odd length → pad last letter with X)</p>
 
           <h4>Step 3: Encrypt Each Digraph</h4>
           <div class="table-wrapper">
             <table>
-              <thead><tr><th>Digraph</th><th>Rule</th><th>Explanation</th><th>Result</th></tr></thead>
+              <thead>
+                <tr>
+                  <th>Digraph</th>
+                  <th>Rule</th>
+                  <th>Explanation</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td><strong>HI</strong></td>
@@ -926,13 +1256,14 @@
       <div class="qa-block">
         <div class="question">
           <span class="q-num">B3</span>
-          A block cipher uses 8-byte blocks. The plaintext length is 22 bytes. Apply PKCS5 padding. Show the final padded length and padding bytes added.
+          A block cipher uses 8-byte blocks. The plaintext length is 22 bytes. Apply PKCS5 padding. Show the final
+          padded length and padding bytes added.
         </div>
         <div class="answer">
           <h4>Step 1: Calculate Padding Needed</h4>
           <div class="formula-box">
-            <code>k = b − (n mod b)</code><br/>
-            <code>k = 8 − (22 mod 8)</code><br/>
+            <code>k = b − (n mod b)</code><br />
+            <code>k = 8 − (22 mod 8)</code><br />
             <code>k = 8 − 6 = <strong>2</strong></code>
           </div>
           <p>We need to add <strong>2 padding bytes</strong>.</p>
@@ -945,12 +1276,13 @@
           <div class="result-box">
             <p><strong>Original length:</strong> 22 bytes</p>
             <p><strong>Padding added:</strong> 2 bytes → <code>0x02 0x02</code></p>
-            <p><strong>Final padded length:</strong> 22 + 2 = <strong>24 bytes</strong> (= 3 complete blocks of 8 bytes)</p>
+            <p><strong>Final padded length:</strong> 22 + 2 = <strong>24 bytes</strong> (= 3 complete blocks of 8 bytes)
+            </p>
           </div>
 
           <div class="example-box">
-            <strong>Visualization:</strong><br/>
-            <code>[Block 1: 8 bytes] [Block 2: 8 bytes] [Block 3: 6 data bytes + 02 02]</code><br/>
+            <strong>Visualization:</strong><br />
+            <code>[Block 1: 8 bytes] [Block 2: 8 bytes] [Block 3: 6 data bytes + 02 02]</code><br />
             Total: 24 bytes = 3 blocks × 8 bytes ✓
           </div>
         </div>
@@ -961,8 +1293,9 @@
 
   <footer class="reveal">
     <p class="footer-text">
-      🔐 Crypto TT-1 Notes — Prepared from Lectures 1, 2, 4, 6 + Playfair/Hill/Vigenère + Unicity Distance PDFs<br/>
-      <span class="footer-sub">CSE 609: Cryptography &amp; Network Security · Cross-checked with lecture materials</span>
+      🔐 Crypto TT-1 Notes — Prepared from Lectures 1, 2, 4, 6 + Playfair/Hill/Vigenère + Unicity Distance PDFs<br />
+      <span class="footer-sub">CSE 609: Cryptography &amp; Network Security · Cross-checked with lecture
+        materials</span>
     </p>
   </footer>
 
@@ -970,4 +1303,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

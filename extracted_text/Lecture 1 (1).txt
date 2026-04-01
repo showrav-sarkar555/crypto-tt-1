@@ -1,0 +1,194 @@
+
+
+===== PAGE 1 =====
+CSE 609: Cryptography 
+& Network Security
+Lecture – 1
+Course Teacher: Golam Mostofa Naeem
+Lecturer, CSE, Metropolitan University
+Reference: Dr. Md Sadek Ferdous
+Assistant Professor, CSE, SUST
+
+===== PAGE 2 =====
+Outline
+•Motivations
+•Course Information
+•Basic concepts
+
+===== PAGE 3 =====
+Outline
+•Motivations
+•Course Information
+•Basic concepts
+•Security properties
+•Security attacks
+•Security failure & secure solutions
+
+
+===== PAGE 4 =====
+Motivations
+• Currently around 8.8 billions of mobiles and increasing
+• Around 6 billions of Internet users
+• Around 378 millions of domain names
+• Around $6420 billions of retail e-commerce sales and growing
+• Almost all spheres of our lives are somehow dependent on the 
+Internet and different web services
+• Mostly in developed countries, developing nations are catching up
+• This trend will continue to grow
+
+===== PAGE 5 =====
+Motivations
+
+
+===== PAGE 6 =====
+Motivations
+
+
+===== PAGE 7 =====
+Motivations
+
+
+===== PAGE 8 =====
+Motivations
+
+
+===== PAGE 9 =====
+Motivations
+https://www.corero.com/img/Diagrams/mirai-botnet-ddos-attack.jpg
+ https://www.incapsula.com/blog/wp-content/uploads/2016/10/mirai-botnet-map.png
+Mirai Botnet
+
+===== PAGE 10 =====
+Motivations
+Source: 
+https://storify.com/services/proxy/2/WJZ_9tf1AVAiKovh3
+3lUA/http/pbs.twimg.com/media/Bk7vrLqIgAArRrS.jpg
+Source: 
+https://i1.wp.com/securityaffairs.co/wordpress/wp-content/u
+ploads/2014/04/heartbleed-SSL-scan-results.jpg
+
+
+===== PAGE 11 =====
+Motivations
+Source: 
+http://www.asuamaytinh.com/wp-content/uploads/2017/05/virus-wanna-c
+ry-la-gi-cach-phong-chong-ra-sao-1888-660x330.jpg
+
+===== PAGE 12 =====
+Historical timeline - 1
+Source: http://www.inf.ed.ac.uk/teaching/courses/cs/0910/lecs/intro.pdf
+
+===== PAGE 13 =====
+Historical timeline - 2
+Source: http://www.inf.ed.ac.uk/teaching/courses/cs/0910/lecs/intro.pdf
+
+===== PAGE 14 =====
+Historical timeline - 3
+Source: http://www.inf.ed.ac.uk/teaching/courses/cs/0910/lecs/intro.pdf
+
+===== PAGE 15 =====
+Historical timeline - 4
+Source: http://www.inf.ed.ac.uk/teaching/courses/cs/0910/lecs/intro.pdf
+
+===== PAGE 16 =====
+Outline
+•Motivations
+•Course Information
+•Basic concepts
+•Security properties
+•Security attacks
+•Security failure & secure solutions
+
+
+===== PAGE 17 =====
+What is computer security?
+• Computer security is the protection of computer systems 
+• operating in adversarial environments
+• with possible adversaries 
+• Protection aims to:
+• allow intended use
+• prevent unintended use 
+
+===== PAGE 18 =====
+What is computer security?
+• In this course
+• why systems are insecure?
+• how to make them secure?
+tries to break in having security properties 
+• Confidentiality
+• Integrity
+• Availability
+• Authenticity
+• Anonymity
+• ….
+• Personal motivation 
+(Ex spouse/employee)
+• Financial motivation
+• Political motivation
+
+===== PAGE 19 =====
+Course Information
+Security
+Information Web Network Physical 
+Security
+Device 
+Security
+Source: https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX18770823.jpg Source: 
+http://itak.iaitam.org/wp-content/uploads/sites/2/2015/06/Can-Mega-Data-Breaches-be-Prev
+ented-%E2%80%93-What-ITAM-Can-Learn-from-Target-and-Home-Depot.jpg
+
+===== PAGE 20 =====
+Course Information
+•Brief introduction to Computer Security
+• Physical Security
+• Operating System Security
+• Basic crypto & Security Protocols
+• Internet and network security
+• Web and email security
+• Malware
+• Bitcoin (if time permits)
+•Will not cover 
+•Deep mathematical study of modern cryptography
+• However, basic cryptography will be covered
+
+
+===== PAGE 21 =====
+
+
+===== PAGE 22 =====
+Resources
+•Textbook
+•Introduction to Computer Security - Michael Goodrich & Roberto Tamassia, 
+First Edition
+•Additional Resources:
+•Introduction to Computer Security – Matt Bishop
+•Handbook of Applied Cryptography - Alfred J. Menezes, Paul C. van Oorschot 
+and Scott A. Vanstone. http://cacr.uwaterloo.ca/hac/
+•Additional research papers will be supplied throughout the course
+
+
+===== PAGE 23 =====
+Advisory: Ethical code of conduct
+•With great power comes great responsibility!
+•Course materials and knowledge gained in this course should not be considered as an incitement to crack!
+•Breaking into system to demonstrate security problems might cause irreversible damages to many innocent users and might lead to prosecution!
+•If you spot a security hole in a running system, don’t exploit it, instead consider contacting the relevant administrators confidentially 
+•Sysadmins might not act quickly as it is difficult to keep up with latest security patches
+•Especially true in the university setting:
+• traditional approach: open access above security, 
+• resources for sysadmin are very tight
+
+
+===== PAGE 24 =====
+Advisory: Ethical code of conduct
+•If you want to experiment with security holes, play with your own machine, in your own private network of machines. 
+• e.g. using a form of virtualisation: e.g., VMWare, Virtual Box, etc. 
+• If you discover a new security hole in a standard and popular application, or operating system
+• consider contacting the vendor of the software/OS in the first case
+• consider suggesting a fix, if you can
+•You might also raise the issue in a security forum for discussion
+• without providing complete details of the hole 
+•The software vendor or other security experts will be able to confirm or deny, and work can begin on fixing the problem
+
+
+===== PAGE 25 =====

@@ -1,0 +1,195 @@
+
+
+===== PAGE 1 =====
+CSE 609: Introduction to 
+Cryptography & 
+Network Security
+Lecture – 4
+Course Teacher: Golam Mostofa Naeem
+
+===== PAGE 2 =====
+Outline
+•Basic crypto concepts
+
+===== PAGE 3 =====
+Encryption
+•A means to allow two parties, customarily called Alice and Bob, to 
+establish confidential communication over an insecure channel that is 
+subject to eavesdropping 
+
+
+===== PAGE 4 =====
+Encryption
+•The message M is called the plaintext 
+•Alice will convert plaintext M to an encrypted form using an 
+encryption algorithm E that outputs a ciphertext C for M 
+
+
+===== PAGE 5 =====
+Encryption
+•As equations: 
+• C = E(M), M = D(C) 
+•The encryption and decryption algorithms are chosen so that it is infeasible for someone other than Alice and Bob to determine plaintext M from ciphertext C
+•Thus, ciphertext C can be transmitted over an insecure channel that can be eavesdropped by an adversary
+•The decryption algorithm must use some secret information known to Bob, and possibly also to Alice, but no other party
+• using an auxiliary input a secret number or string called decryption key
+• the decryption algorithm itself can be implemented by standard, publicly available software and only the decryption key needs to remain secret
+•Similarly, the encryption algorithm uses as auxiliary input an encryption key, which is associated with the decryption key 
+•If it is feasible to derive the decryption key from the encryption key, the encryption key should be kept secret as well
+
+===== PAGE 6 =====
+Cryptosystem
+•A cryptosystem consists of seven components: 
+•The set of possible plaintexts 
+•The set of possible ciphertexts 
+•The set of encryption keys 
+•The set of decryption keys 
+•The correspondence between encryption keys and decryption keys 
+•The encryption algorithm to use 
+•The decryption algorithm to use 
+
+===== PAGE 7 =====
+Cryptosystem: Caesar cipher
+•Replace each letter with the one “three over” in the alphabet
+• An example of a shift cipher
+•Can be denoted using the following formula:
+• s(c, k), here c represents one of 23 letters in Latin Alphabet and k represents the key• If k > 0, forward shift (encryption) and if k < 0, backward shift (decryption)• Example: s(A,3) = D, s(D,-3) = A
+•For Caesar cipher, {k=3} is the set of encryption key and {k=-3} is the set of decryption key
+•Uses modulo operation in a sort of circular shift fashion when shift goes beyond the limit
+
+
+===== PAGE 8 =====
+Symmetric key distribution
+•Symmetric crypto-systems are quite fast 
+and efficient
+•However their main problem is key 
+distribution
+•It requires each pair of communicating 
+parties to share a (separate) secret key 
+•If there are n parties, it means it requires a 
+a total of n(n − 1)/2 keys 
+
+
+===== PAGE 9 =====
+Public key cryptography
+• 
+
+
+===== PAGE 10 =====
+Public key distribution
+•How many keys do we need to distribute for n users??
+
+===== PAGE 11 =====
+Public key distribution
+•Only one key is needed for each recipient!
+
+
+===== PAGE 12 =====
+Combining symmetric and public key systems
+•The main disadvantage of public-key cryptosystems is that they are 
+much slower than existing symmetric encryption schemes 
+•Hence, public-key cryptography is unsuitable for interactive sessions that use 
+a lot of back-and-forth communication
+•Also, public-key cryptosystems have larger key lengths than that for 
+symmetric cryptosystems
+•For example, RSA is commonly used with 2,048-bit keys while AES is typically 
+used with 256-bit keys 
+
+===== PAGE 13 =====
+Combining symmetric and public key systems
+•To work around these 
+disadvantages,
+•public-key cryptosystems are often 
+used in practice just to allow Alice 
+and Bob to exchange a shared secret 
+key
+•Once exchanged, the shared 
+secret key then can be used for 
+communication encrypted with a 
+symmetric encryption scheme 
+
+
+===== PAGE 14 =====
+Digital signature
+• 
+
+===== PAGE 15 =====
+Man In The Middle (MITM) Attack
+• Charlie is in the middle between Alice and Bob 
+• Charlie can:
+• View traffic• Change traffic • Add traffic• Delete traffic
+• Charlie could be:
+• Internet service provider• Virtual Private Network (VPN) provider• WIFI provider such as a coffee shop• An attacker re-routing your connection
+• An incompetent admin (it happens) 
+
+===== PAGE 16 =====
+Simple attacks on crypto systems: MITM
+•The straightforward use of a 
+cryptosystem presented, which 
+consists of simply transmitting the 
+ciphertext, assures confidentiality
+•However, it does not guarantee the 
+authenticity and integrity of the 
+message if the adversary can 
+intercept and modify the ciphertext
+•How the recipient can be assured 
+that the message s(he) receives is 
+the intended one?
+Man-In-The-Middle
+
+===== PAGE 17 =====
+Simple attacks on crypto systems: MITM
+•Bob (M, S): (C,S) -> Eve (C’,S’) -> Alice (C’, S’): (M’,S’)??
+•Note that M′ will be different from the original message M
+• When Alice verifies the digital signature S′, she obtains message M′ by encrypting S’ 
+• Thus, Alice is led to believe that Bob has signed M′ instead of M
+•Note that in the above attacks the adversary can arbitrarily alter the transmitted ciphertext or signature
+•However, the adversary cannot choose, or even figure out, what would be the resulting plaintext since she does not have the ability to decrypt
+•Thus, the above attacks are effective only if any arbitrary sequence of bits is a possible message
+•This scenario occurs, for example, when a randomly generated symmetric key is transmitted encrypted with a public-key cryptosystem 
+
+===== PAGE 18 =====
+Simple attacks on crypto systems: brute-force
+•How about brute forcing a crypto system?
+•Trying different probable keys over a cipher text to decrypt it to a meaningful text
+•Mind you, encryption and decryption functions are open, just the key is secret!
+•If the plaintext is an arbitrary binary string, this attack cannot succeed, as there is no way for the attacker to distinguish a valid message 
+•However, if the plaintext is known to be text in a natural language, then the adversary hopes that only a small subset of the decryption results (ideally just a single plaintext) will be a meaningful text for the language 
+
+===== PAGE 19 =====
+Brute force attack
+•Some knowledge about the possible message being sent will then help the attacker pinpoint the correct plaintext
+•Key should be a sufficiently long random value to make exhaustive search attacks unfeasible
+•Problem is it is usually easy to recognize that a message is a valid plaintext
+•For example, given a certain ciphertext, if an attacker could decrypt it with a given key and get message NGGNPXNGQNJABAVEIVARORNPU, which she can immediately dismiss
+•But if she gets message ATTACKATDAWNONIRVINEBEACH, then she can be confident she has found the decryption key
+•This ability is related to the unicity distance for a cryptosystem
+
+
+===== PAGE 20 =====
+Brute force attack
+• 
+
+===== PAGE 21 =====
+Brute force attack
+• 
+
+===== PAGE 22 =====
+Brute force attack
+• 
+
+===== PAGE 23 =====
+Brute force attack
+• 
+
+===== PAGE 24 =====
+Brute force attack
+•For the English language and the 256-bit AES cryptosystem, the 
+unicity distance is about 304 bits or 38 ASCII-encoded characters
+•This is only half a line of text
+•We can conclude that brute-force decryption is likely to succeed for 
+messages in natural language that are not too short
+•Namely, when a key yields a plaintext that is a meaningful text, the 
+attacker has probably recovered the original message
+
+===== PAGE 25 =====

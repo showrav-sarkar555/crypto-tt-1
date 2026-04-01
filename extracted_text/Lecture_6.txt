@@ -1,0 +1,241 @@
+
+
+===== PAGE 1 =====
+CSE 609: Introduction to 
+Cryptography & Network
+Security
+Lecture – 6
+Course Teacher: Golam Mostofa Naeem
+
+===== PAGE 2 =====
+Outline
+•Crypto primitives
+•Classis crypto systems
+•Block cipher
+
+===== PAGE 3 =====
+Crypto primitives
+•Alice wants to send a 
+message (plaintext P) to Bob
+•The communication channel 
+is insecure and can be 
+eavesdropped by an attacker 
+Eve
+•The goal is to allow secure 
+exchanges of messages 
+between Alice and Bob in an 
+insecure channel
+•Crypto to the rescue!
+
+
+===== PAGE 4 =====
+Crypto primitives
+• 
+
+===== PAGE 5 =====
+Cryptosystem attacks
+•The science of attacking cryptosystems is known as cryptanalysis and its 
+practitioners are called cryptanalysts
+•In performing cryptanalysis, we assume that the cryptanalyst knows the 
+algorithms for encryption and decryption
+•only the keys used are secret
+•This assumption follows the open design principle
+•The concept of achieving security by obscurity (e.g. a cryptanalyst does not 
+know anything about algorithms) is likely to fail
+•This because such information might leak in different ways:
+•internal company documents could be published or stolen,
+•a programmer who coded an encryption algorithm could be bribed or could 
+voluntarily disclose the algorithm, or 
+•the software or hardware that implements an encryption algorithm could be 
+reverse engineered 
+
+===== PAGE 6 =====
+Cryptosystem attacks
+•Ciphertext-only attack
+•In this attack, the cryptanalyst has access to the ciphertext of one or more messages, all of which were encrypted using the same key, K
+•His or her goal is to determine the plaintext for one or more of these ciphertexts or, better yet, to discover K
+•Known-plaintext attack
+•In this attack, the cryptanalyst has access to one or more plaintext-ciphertext pairs, such that each plaintext was encrypted using the same key, K
+•His or her goal in this case is to determine the key, K 
+
+
+===== PAGE 7 =====
+Cryptosystem attacks
+• Chosen-plaintext attack 
+•In this attack, the cryptanalyst can chose one or 
+more plaintext messages and get the ciphertext 
+that is associated with each one, based on the 
+use of same key, K 
+• In the offline chosen-plaintext attack, the 
+cryptanalyst must choose all the plaintexts in 
+advance
+• In the adaptive chosen-plaintext attack, the 
+cryptanalyst can choose plaintexts in an iterative 
+fashion, where each plaintext choice can be 
+based on information he gained from previous 
+plaintext encryptions 
+
+
+===== PAGE 8 =====
+Cryptosystem attacks
+•Chosen-ciphertext attack
+•In this attack, the cryptanalyst can choose one or 
+more ciphertext messages and get the plaintext 
+that is associated with each one, based on the 
+use of same key, K
+•As with the chosen-plaintext attack, this attack 
+also has both offline and adaptive versions
+
+
+===== PAGE 9 =====
+Classic cipher: Substitution cipher
+•Each letter is uniquely replaced by another
+•Caesar cipher is an example of a substitution cipher utilised by Julius 
+Caesar:
+•Here, each letter in the plaintext is shifted three letters on right 
+•When it reaches the end, it is wrapped back at the beginning
+•The decryption would require a three left shift
+•An example of a Caesar shift is given below:
+
+
+===== PAGE 10 =====
+Classic cipher: Substitution cipher
+• 
+
+===== PAGE 11 =====
+Substitution cipher attack
+•Even with this huge key space, a substitution cipher can be easily 
+broken
+•This is because letters in a natural language, like English, are not 
+uniformly distributed
+•Knowledge of letter frequencies, including pairs and triples can be 
+used in cryptologic attacks against substitution ciphers
+•For example, in English text, the letter “E” occurring just over 12% of 
+the time, and “T” occurring less than 10% of the time
+•The most frequently occurring character in a ciphertext created from 
+English substitution cipher probably corresponds to the letter E and 
+so on
+
+
+===== PAGE 12 =====
+Substitution cipher attack
+
+
+===== PAGE 13 =====
+Polygraphic substitution cipher 
+• 
+
+===== PAGE 14 =====
+Polygraphic substitution cipher 
+•One easy way to express a digram substitution is using a 
+two-dimensional table
+•In such a table, the first letter in a pair would specify a row, the 
+second letter in a pair would specify a column, and each entry would 
+be the unique two-letter substitution to use for this pair. 
+•Such a specification is called a substitution box or S-box
+•This approach can be extended for binary values
+
+
+===== PAGE 15 =====
+Polygraphic substitution cipher 
+•This approach can be extended for binary values
+
+
+===== PAGE 16 =====
+Classic cipher: Vigenère cipher
+• 
+
+===== PAGE 17 =====
+Vigenère cipher
+Unfortunately, it can be 
+easily broken using 
+statistical techniques 
+
+===== PAGE 18 =====
+One-Time Pads
+• 
+
+===== PAGE 19 =====
+One-Time Pads
+•In spite of their perfect security, one-time pads have some 
+weaknesses
+•The key has to be as long as the plaintext
+•Keys can never be reused
+•Repeated use of one-time pads allowed the U.S. to break some of the 
+communications of Soviet spies during the Cold War
+
+===== PAGE 20 =====
+Classic cipher – Hill cipher
+• 
+
+===== PAGE 21 =====
+Block cipher
+• 
+
+
+===== PAGE 22 =====
+Padding
+•Block ciphers require the length n of the plaintext to be a multiple of the block size b
+•Padding the last block needs to be unambiguous (cannot just add zeroes)
+•When the block size and plaintext length are a multiple of 8, a common padding method (PKCS5) is a sequence of identical bytes, each indicating the length (in bytes) of the padding
+•Example for b = 128 (16 bytes)
+• Plaintext: “Roberto” (7 bytes)
+• Padded plaintext: “Roberto999999999” (16 bytes), where 9 denotes the number and not the character
+•We need to always pad the last block, which may consist only of padding
+• To remove any ambiguity if the message has a padding or not!
+
+===== PAGE 23 =====
+Modes of operation
+•There are several ways to use a block cipher, such as AES, that 
+operate on fixed-length blocks
+•The different ways such an encryption algorithm can be used are 
+known as its modes of operation
+•Four modes of operation:
+•Electronic Codebook (ECB) Mode 
+•Cipher-Block Chaining (CBC) Mode 
+•Cipher Feedback (CFB) Mode 
+•Output Feedback (OFB) Mode 
+
+===== PAGE 24 =====
+Electronic Codebook (ECB) Mode 
+• 
+Source: https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+===== PAGE 25 =====
+Electronic Codebook (ECB) Mode: pros & 
+cons 
+•ECB mode works well with random strings (e.g., keys and initialization vectors) and strings that fit in one block
+•Documents and images are not suitable for ECB encryption since patters in the plaintext are repeated in the ciphertext
+•Example of image encrypted in ECB :
+
+
+===== PAGE 26 =====
+Cipher–block Chaining (CBC) Mode 
+• 
+Source: https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+
+===== PAGE 27 =====
+CBC Mode: pros & cons 
+•Strengths:
+•Doesn’t show patterns in the plaintext
+•Is the most common mode
+•Is fast and relatively simple
+•Weaknesses:
+•CBC requires the reliable transmission of all the blocks sequentially
+•CBC is not suitable for applications that allow packet losses (e.g., music and 
+video streaming)
+
+===== PAGE 28 =====
+Cipher Feedback (CFB) Mode  
+• 
+Source: https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+
+===== PAGE 29 =====
+Output Feedback (OFB) Mode
+• 
+Source: https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation
+
+
+===== PAGE 30 =====
