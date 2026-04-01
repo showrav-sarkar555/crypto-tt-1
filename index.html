@@ -135,12 +135,28 @@
 
       <div class="topic-block">
         <h3>📖 Common Criteria (CC) Terminology</h3>
+        <p>CC is an <strong>international set of guidelines and specifications by ISO</strong> for evaluating information security products, specifically to ensure they meet an agreed-upon security standard for government deployments.</p>
         <ul>
           <li><strong>Asset:</strong> Something valuable to its owner.</li>
           <li><strong>Vulnerability:</strong> A weakness in the asset.</li>
-          <li><strong>Threat:</strong> Exploits vulnerabilities to violate security; increases risk.</li>
-          <li><strong>Threat Agent:</strong> Attacker/adversary who values assets and wants to abuse them.</li>
+          <li><strong>Threat:</strong> Exploits vulnerabilities within an asset to violate its security; increases the risk of abuse.</li>
+          <li><strong>Threat Agent (Attacker/Adversary):</strong> Values assets and wants to abuse them.</li>
           <li><strong>Countermeasure:</strong> Adopted by owners to minimize risks.</li>
+        </ul>
+        <p class="note-small">Relationships: Threat agents exploit vulnerabilities → threats increase risk → owners adopt countermeasures.</p>
+      </div>
+
+      <div class="topic-block">
+        <h3>🔍 Defining Security</h3>
+        <ul>
+          <li>The security of a system, application, or protocol is always <strong>relative to</strong>:
+            <ul>
+              <li>A set of <strong>desired properties</strong></li>
+              <li>An <strong>adversary (attacker) with specific capabilities</strong></li>
+            </ul>
+          </li>
+          <li>Academic study of security is <strong>NOT</strong> about breaking into systems or launching attacks.</li>
+          <li>Focus: exploring <strong>why a system is insecure</strong> and <strong>how to make them secure</strong>.</li>
         </ul>
       </div>
 
@@ -204,19 +220,61 @@
             <tbody>
               <tr>
                 <td><strong>Authenticity</strong></td>
-                <td>Entity/data origin is genuine, verifiable, and trusted. Mechanism: Digital Signature.</td>
+                <td>Entity/data origin is genuine, verifiable, and trusted. Source authenticity + Entity authentication.</td>
               </tr>
               <tr>
-                <td><strong>Non-Repudiation</strong></td>
-                <td>Actions traceable; a party cannot deny a certain action. Mechanism: Secure Audit Trail.</td>
+                <td><strong>Accountability / Non-Repudiation</strong></td>
+                <td>Actions traceable uniquely to an entity; a party cannot deny a certain action.</td>
               </tr>
               <tr>
                 <td><strong>Anonymity</strong></td>
-                <td>Records/transactions not attributable to any individual. Tools: Mixing, Proxies, Pseudonyms.</td>
+                <td>Certain records or transactions not attributable to any individual.</td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <h4>🪪 Authenticity — In Detail</h4>
+        <ul>
+          <li>The property of an entity or data source being <strong>genuine, verifiable, and trusted</strong> — confidence in the validity of a transmission, message, or message originator.</li>
+          <li>Verifying that users are who they say they are and that each input arrived from a <strong>trusted source</strong>.</li>
+          <li>Example: Purporting someone else's identity for malicious purposes.</li>
+          <li><strong>Data Authentication:</strong> Deals with <strong>source authenticity</strong>. Mechanism: <strong>Digital Signature</strong>.</li>
+          <li><strong>Entity Authentication:</strong> Deals with <strong>identity authenticity</strong>. For a person:
+            <ul>
+              <li>Something you <strong>have</strong> — e.g., ID cards, smart cards</li>
+              <li>Something you <strong>know</strong> — e.g., a password or secret key</li>
+              <li>Something you <strong>are</strong> — e.g., biometric (fingerprint, face, iris scanning)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>📋 Accountability / Non-Repudiation — In Detail</h4>
+        <ul>
+          <li>Ensures the actions of an entity can be <strong>traced uniquely</strong> to that entity.</li>
+          <li>True secure systems are not yet an achievable goal — so we must be able to trace a security breach to a responsible party.</li>
+          <li>This supports:
+            <ul>
+              <li><strong>Non-repudiation</strong> — a party cannot deny a certain action</li>
+              <li><strong>Fault isolation</strong></li>
+              <li><strong>After-action recovery</strong> and legal action</li>
+            </ul>
+          </li>
+          <li><strong>Mechanism:</strong> Via a <strong>secure audit trail</strong>.</li>
+          <li>Challenge: Creating an audit trail with machine logs is tricky — if a system is compromised, logs may also be tampered with. Solution approach: send log messages to an <strong>append-only file</strong>.</li>
+        </ul>
+
+        <h4>👤 Anonymity — In Detail</h4>
+        <ul>
+          <li>The property that certain records or transactions are <strong>not attributable</strong> to any individual.</li>
+          <li><strong>Tools of Anonymity:</strong>
+            <ul>
+              <li><strong>Mixing:</strong> Intertwining transactions, information, or communications in a way that cannot be traced to any individual.</li>
+              <li><strong>Proxies:</strong> Trusted agents willing to engage in actions for an individual in a way that cannot be traced back to that person.</li>
+              <li><strong>Pseudonyms:</strong> Fictional identities that can fill in for real identities in communications and transactions, but are otherwise known only to a trusted entity.</li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       <div class="topic-block">
@@ -338,13 +396,31 @@
         <h3>🕵️ Man-In-The-Middle (MITM) Attack</h3>
         <ul>
           <li>Charlie sits between Alice and Bob; can <strong>view, change, add, or delete</strong> traffic.</li>
-          <li>Charlie could be: ISP, VPN provider, WiFi provider, an attacker re-routing connections.</li>
+          <li>Charlie could be: ISP, VPN provider, WiFi provider, an attacker re-routing connections, or even an incompetent admin.</li>
           <li>Straightforward crypto ensures confidentiality but <strong>not authenticity/integrity</strong> if
             adversary can modify ciphertext.</li>
           <li>Adversary can alter ciphertext/signature but cannot choose or figure out resulting plaintext (no
             decryption key).</li>
           <li>Effective only when any arbitrary bit sequence is a possible message (e.g., transmitting a random
             symmetric key).</li>
+        </ul>
+        <div class="example-box">
+          <strong>MITM Signature Attack Flow:</strong><br />
+          Bob sends (M, S) → encrypted as (C, S) → Eve intercepts → modifies to (C', S') → Alice receives (C', S')<br />
+          • M' will be <strong>different</strong> from original message M<br />
+          • When Alice verifies digital signature S', she obtains M' by decrypting S'<br />
+          • Alice is led to believe that <strong>Bob signed M' instead of M</strong><br />
+          • The adversary can arbitrarily alter the transmitted ciphertext or signature, but cannot choose or figure out the resulting plaintext
+        </div>
+      </div>
+
+      <div class="topic-block">
+        <h3>✍️ Digital Signature</h3>
+        <ul>
+          <li>A mechanism that allows a sender to <strong>attach a code</strong> (signature) to a message that acts as proof of origin and integrity.</li>
+          <li>Provides <strong>authenticity</strong> — the receiver can verify that the message truly came from the claimed sender.</li>
+          <li>Provides <strong>non-repudiation</strong> — the sender cannot deny having sent the message.</li>
+          <li>Based on <strong>public-key cryptography</strong>: sender signs with private key, receiver verifies with sender's public key.</li>
         </ul>
       </div>
     </section>
@@ -353,8 +429,18 @@
     <section class="card reveal" id="lecture-6">
       <div class="card-badge">Lecture 6</div>
       <h2>Cryptanalysis, Block Ciphers &amp; Modes</h2>
-      <p class="card-intro">Attack classification, substitution ciphers, block cipher structure, padding, and modes of
-        operation.</p>
+      <p class="card-intro">Crypto primitives, attack classification, classic ciphers, block cipher structure, padding,
+        and modes of operation.</p>
+
+      <div class="topic-block">
+        <h3>🔑 Crypto Primitives</h3>
+        <ul>
+          <li>Alice wants to send a message (<strong>plaintext P</strong>) to Bob.</li>
+          <li>The communication channel is <strong>insecure</strong> and can be eavesdropped by an attacker <strong>Eve</strong>.</li>
+          <li>The goal is to allow <strong>secure exchanges of messages</strong> between Alice and Bob in an insecure channel.</li>
+          <li>Solution: <strong>Cryptography to the rescue!</strong> — transform plaintext into ciphertext so Eve cannot read it.</li>
+        </ul>
+      </div>
 
       <div class="topic-block">
         <h3>🔍 Cryptosystem Attacks (Cryptanalysis)</h3>
@@ -399,25 +485,54 @@
 
       <div class="topic-block">
         <h3>🔤 Classic Ciphers</h3>
+
         <h4>Substitution Cipher</h4>
         <ul>
           <li>Each letter is <strong>uniquely replaced</strong> by another.</li>
-          <li>Caesar cipher is a special case (shift by 3).</li>
-          <li>Easily broken via <strong>frequency analysis</strong> — letters in English are not uniformly distributed
-            (E ≈ 12%, T &lt; 10%).</li>
+          <li><strong>Caesar cipher</strong> is an example of a substitution cipher utilised by Julius Caesar:
+            <ul>
+              <li>Each letter in the plaintext is shifted <strong>three letters to the right</strong>.</li>
+              <li>When it reaches the end, it is <strong>wrapped back</strong> at the beginning.</li>
+              <li>Decryption requires a <strong>three left shift</strong>.</li>
+            </ul>
+          </li>
         </ul>
+
+        <h4>Substitution Cipher Attack (Frequency Analysis)</h4>
+        <ul>
+          <li>Even with a huge key space (26! ≈ 4×10²⁶ possible keys), a substitution cipher can be <strong>easily broken</strong>.</li>
+          <li>This is because letters in a natural language like English are <strong>not uniformly distributed</strong>.</li>
+          <li>Knowledge of <strong>letter frequencies</strong> (including pairs and triples) can be used in cryptanalytic attacks.</li>
+          <li>In English text: letter <strong>"E" occurs ~12%</strong> of the time, <strong>"T" occurs &lt;10%</strong> of the time.</li>
+          <li>The most frequently occurring character in ciphertext from English substitution cipher <strong>probably corresponds to the letter "E"</strong>, and so on.</li>
+        </ul>
+
         <h4>Polygraphic Substitution Cipher</h4>
         <ul>
           <li>Encrypt <strong>digraphs</strong> (letter pairs) instead of single letters.</li>
-          <li>Uses a 2D table (first letter → row, second → column) called a <strong>S-box (substitution box)</strong>.
-          </li>
-          <li>Extends to binary values.</li>
+          <li>One easy way to express a digram substitution is using a <strong>two-dimensional table</strong>.</li>
+          <li>First letter in a pair specifies the <strong>row</strong>, second letter specifies the <strong>column</strong>; each entry is the unique two-letter substitution (called a <strong>S-box — substitution box</strong>).</li>
+          <li>This approach can be extended for <strong>binary values</strong>.</li>
         </ul>
+
+        <h4>Vigenère Cipher</h4>
+        <ul>
+          <li>A polyalphabetic substitution cipher — uses a repeating keyword to vary the shift.</li>
+          <li>Unfortunately, it can be <strong>easily broken using statistical techniques</strong> (Kasiski examination, Index of Coincidence).</li>
+        </ul>
+
         <h4>One-Time Pads</h4>
         <ul>
-          <li>Provide <strong>perfect security</strong> but have weaknesses: key must be as long as plaintext, keys can
-            never be reused.</li>
-          <li>Repeated use allowed the U.S. to break Soviet spy communications during the Cold War.</li>
+          <li>Provide <strong>perfect security</strong>, but have practical weaknesses:</li>
+          <li>The key has to be <strong>as long as the plaintext</strong>.</li>
+          <li>Keys can <strong>never be reused</strong>.</li>
+          <li>Repeated use of one-time pads allowed the U.S. to break some of the communications of <strong>Soviet spies during the Cold War</strong>.</li>
+        </ul>
+
+        <h4>Hill Cipher</h4>
+        <ul>
+          <li>A polygraphic substitution cipher based on <strong>matrix multiplication</strong> (linear algebra).</li>
+          <li>Uses an n×n key matrix; plaintext is broken into vectors of size n.</li>
         </ul>
       </div>
 
