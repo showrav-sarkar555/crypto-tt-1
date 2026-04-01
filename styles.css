@@ -1,0 +1,143 @@
+:root {
+  --bg-1: #f4efe3;
+  --bg-2: #d8e2dc;
+  --ink: #1d1c1a;
+  --muted: #3b3a36;
+  --card: rgba(255, 250, 240, 0.82);
+  --line: rgba(29, 28, 26, 0.14);
+  --accent: #0b6e4f;
+  --accent-2: #ff7f11;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 127, 17, 0.16), transparent 36%),
+    radial-gradient(circle at 85% 0%, rgba(11, 110, 79, 0.19), transparent 34%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  min-height: 100vh;
+  line-height: 1.55;
+}
+
+.hero,
+.card,
+footer {
+  width: min(1000px, 92vw);
+  margin: 1.2rem auto;
+}
+
+.hero {
+  margin-top: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 2.2rem;
+  background: var(--card);
+  box-shadow: 0 20px 60px rgba(29, 28, 26, 0.1);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0.65rem 0;
+  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
+  line-height: 1.08;
+}
+
+.hero-copy {
+  max-width: 68ch;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 0.8rem;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(120deg, var(--accent), #0d8a63);
+  border-radius: 999px;
+  padding: 0.64rem 1rem;
+  font-weight: 600;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  padding: 1.3rem 1.4rem;
+  backdrop-filter: blur(4px);
+}
+
+h2 {
+  margin-top: 0.2rem;
+}
+
+h3 {
+  margin-top: 1.3rem;
+  padding-top: 0.9rem;
+  border-top: 1px dashed var(--line);
+}
+
+ul,
+ol {
+  margin: 0.4rem 0 0 1.2rem;
+}
+
+li {
+  margin: 0.45rem 0;
+}
+
+pre,
+code {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+pre {
+  overflow-x: auto;
+  background: #f8f5ec;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+.note {
+  border-left: 4px solid var(--accent-2);
+  padding-left: 0.8rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.2rem 0 2rem;
+  color: var(--muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 520ms ease, transform 520ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 1.4rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}

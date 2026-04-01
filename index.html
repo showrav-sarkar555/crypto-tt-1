@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto TT-1 Notes and Sample Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero reveal">
+    <p class="eyebrow">CSE 609 · Cryptography & Network Security</p>
+    <h1>TT-1 Notes + Solved Sample Questions</h1>
+    <p class="hero-copy">
+      Built from Lecture 1, 2, 4, 6, Playfair/Vigenere material, and Unicity Distance notes.
+      Includes concise theory and full Part A + Part B sample solutions.
+    </p>
+    <a class="cta" href="#sample-solutions">Jump to Solved Questions</a>
+  </header>
+
+  <main>
+    <section class="card reveal" id="lecture-1">
+      <h2>Lecture 1: Security Foundations</h2>
+      <ul>
+        <li>Computer security protects systems in adversarial environments against unintended use.</li>
+        <li>Core properties introduced: confidentiality, integrity, availability, authenticity, anonymity.</li>
+        <li>Focus: why systems fail and how to secure them (not offensive misuse).</li>
+      </ul>
+    </section>
+
+    <section class="card reveal" id="lecture-2">
+      <h2>Lecture 2: Security Goals and Attacks</h2>
+      <ul>
+        <li>CIA triad definitions and tools (encryption, access control, authentication, backups, redundancy).</li>
+        <li>Integrity split into data integrity and system integrity.</li>
+        <li>Attacks: passive (eavesdropping, traffic analysis) and active (masquerade, modification, replay, DoS).</li>
+      </ul>
+    </section>
+
+    <section class="card reveal" id="lecture-4">
+      <h2>Lecture 4: Cryptosystem Basics and Brute Force</h2>
+      <ul>
+        <li>Formal model: C = E(M) and M = D(C) with key secrecy and open algorithms.</li>
+        <li>Brute force: try keys until meaningful plaintext appears.</li>
+        <li>Unicity connection: for natural language, enough ciphertext can uniquely reveal the correct key.</li>
+      </ul>
+    </section>
+
+    <section class="card reveal" id="lecture-6">
+      <h2>Lecture 6: Cryptanalysis, Block Ciphers, and Modes</h2>
+      <ul>
+        <li>Cryptanalysis models: ciphertext-only, known-plaintext, chosen-plaintext, chosen-ciphertext.</li>
+        <li>Block ciphers need padding so message length is a multiple of block size.</li>
+        <li>Modes covered: ECB, CBC, CFB, OFB with different security and error/streaming behavior.</li>
+      </ul>
+    </section>
+
+    <section class="card reveal" id="playfair-unicity">
+      <h2>Playfair, Vigenere, and Unicity Distance</h2>
+      <ul>
+        <li>Vigenere improves over Caesar by polyalphabetic substitution using a repeating key.</li>
+        <li>Playfair encrypts digraphs (letter pairs), reducing simple single-letter frequency leakage.</li>
+        <li>Unicity distance: minimum ciphertext needed so only one key yields meaningful plaintext.</li>
+      </ul>
+      <p class="note">
+        Unicity intuition: short ciphertext can match multiple keys; longer ciphertext usually collapses to one meaningful key.
+      </p>
+    </section>
+
+    <section class="card reveal" id="sample-solutions">
+      <h2>Sample Questions: Solved</h2>
+
+      <h3>Part A</h3>
+      <ol>
+        <li>
+          <strong>System integrity:</strong> system runs as intended without unauthorized manipulation.
+          <br />
+          <strong>Integrity vs confidentiality:</strong> confidentiality prevents unauthorized reading; integrity prevents unauthorized change.
+          <br />
+          <strong>Example:</strong> If salary data is leaked, confidentiality fails. If salary numbers are altered, integrity fails.
+        </li>
+        <li>
+          <strong>CIA in banking:</strong>
+          <br />
+          Confidentiality: account data encrypted and access-controlled.
+          <br />
+          Integrity: transactions protected by checks, signatures, and audit logs.
+          <br />
+          Availability: redundant servers and DDoS protection keep services online.
+        </li>
+        <li>
+          <strong>Cryptanalysis attacks:</strong> ciphertext-only, known-plaintext, chosen-plaintext (offline/adaptive), chosen-ciphertext.
+          <br />
+          Ciphertext-only: attacker only sees ciphertexts and tries to recover plaintext/key.
+          <br />
+          Chosen-plaintext: attacker chooses plaintexts and observes ciphertexts to infer key behavior.
+        </li>
+        <li>
+          <strong>Brute force attack:</strong> exhaustive key search until meaningful decryption appears.
+          <br />
+          Practical when keyspace is small, keys are weak/predictable, attacker has high compute, or enough ciphertext exposes a unique valid plaintext.
+        </li>
+        <li>
+          <strong>Block cipher:</strong> encrypts fixed-size blocks using same secret key.
+          <br />
+          <strong>Modes:</strong>
+          ECB: independent blocks; leaks patterns.
+          CBC: chains blocks with IV; hides patterns but sequential dependency.
+          CFB: stream-like feedback mode; useful for streaming.
+          OFB: keystream mode; avoids error propagation from ciphertext corruption.
+          <br />
+          <strong>Example mode trade-off (CBC):</strong> Advantage: hides plaintext patterns. Disadvantage: packet loss/order issues hurt decryption.
+        </li>
+        <li>
+          <strong>PKCS#5 padding:</strong> append $k$ bytes each valued $k$ where $k = b - (n \bmod b)$, with block size $b$ in bytes.
+          <br />
+          Needed because block ciphers require plaintext length to be exact block multiple; also removes ambiguity during unpadding.
+        </li>
+        <li>
+          Vigenere is stronger than Caesar because Caesar uses one fixed shift for all letters, while Vigenere uses key-based varying shifts (polyalphabetic), weakening simple frequency attacks.
+        </li>
+        <li>
+          <strong>Playfair encryption:</strong>
+          build a 5x5 key matrix (I/J combined), split plaintext into digraphs, then encrypt by row/column/rectangle rules.
+          <br />
+          Stronger than simple substitution because it encrypts letter pairs, obscuring single-letter statistics.
+        </li>
+        <li>
+          <strong>Scenario attack:</strong> brute-force (exhaustive key search).
+          <br />
+          <strong>Challenged principle:</strong> confidentiality.
+        </li>
+        <li>
+          <strong>Violated CIA component:</strong> integrity (unauthorized modification of patient data).
+          <br />
+          <strong>Two preventive measures:</strong> strict access control + MFA, and tamper-evident audit logging with integrity checks.
+        </li>
+        <li>
+          <strong>Attack type:</strong> password guessing / brute-force (often dictionary-based automation).
+          <br />
+          <strong>Prevention:</strong> strong passphrase policy, rate limits/account lockouts, MFA, and key-derivation hardening (e.g., PBKDF2/Argon2) for password-based encryption.
+        </li>
+      </ol>
+
+      <h3>Part B</h3>
+      <ol>
+        <li>
+          <strong>Encrypt SECURITY with Vigenere key KEY</strong>
+          <br />
+          Plaintext: SECURITY
+          <br />
+          Key stream: KEYKEYKE
+          <br />
+          Ciphertext: <code>CIAEVGDC</code>
+        </li>
+        <li>
+          <strong>Encrypt HIDE MONEY using Playfair key MONARCHY</strong>
+          <br />
+          Matrix:
+          <pre>M O N A R
+C H Y B D
+E F G I K
+L P Q S T
+U V W X Z</pre>
+          Digraphs: HI DE MO NE YX
+          <br />
+          Encrypted pairs: BF CK ON MG BW
+          <br />
+          Ciphertext: <code>BFCKONMGBW</code>
+        </li>
+        <li>
+          <strong>PKCS#5 padding (block size 8 bytes, plaintext 22 bytes)</strong>
+          <br />
+          22 mod 8 = 6, so add 8 - 6 = 2 bytes.
+          <br />
+          Padding bytes: <code>0x02 0x02</code>
+          <br />
+          Final padded length: <strong>24 bytes</strong>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="reveal">
+    <p>Prepared for TT-1 revision. Cross-checked with extracted lecture/sample texts.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
